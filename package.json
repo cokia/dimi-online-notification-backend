@@ -1,0 +1,37 @@
+{
+  "name": "dimi-online-notification-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@types/dotenv": "^8.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "typesync": "^0.6.1",
+    "web-push": "^3.4.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.6",
+    "@types/eslint": "^6.8.0",
+    "@types/express": "^4.17.6",
+    "@typescript-eslint/eslint-plugin": "^2.29.0",
+    "@typescript-eslint/parser": "^2.29.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cokia/dimi-online-notification-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cokia/dimi-online-notification-backend/issues"
+  },
+  "homepage": "https://github.com/cokia/dimi-online-notification-backend#readme"
+}
