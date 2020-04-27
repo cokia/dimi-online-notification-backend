@@ -12,7 +12,7 @@ class App {
   }
 }
 const app = new App().application;
-
+const zoomurl = 'zoommtg://us04web.zoom.us/join?action=join&confno=';
 app.use(cors());
 app.all('/*', (req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -25,14 +25,14 @@ app.get('/', (req, res) => {
   res.status(200).send('dimi-online-notification api server');
 });
 
-app.get('/getimage/:grade/:class', (req, res) => {
-// 준호선배가 이미지 그리는 로직 만들어줄거라고 믿고있어요 ~~~ ㅎㅎ
+app.get('/gettodaytt/:grade/:class', (req, res) => {
+  // 오늘시간표
 });
 
 app.get('/gettodaytt/:grade/:class', (req, res) => {
-// 오늘의 타임스템프
+// 오늘시간표
 });
 
-app.get('/subscription/:grade/:class', (req, res) => {
+app.post('/subscription/:grade/:class', (req, res) => {
   // 오늘의 타임스템프
 });
