@@ -25,14 +25,3 @@ app.get('/', (req, res) => {
   res.status(200).send('dimi-online-notification api server');
 });
 
-app.get('/gettodaytt/:grade/:class', (req, res) => {
-  // 오늘시간표
-});
-
-app.get('/gettodaytt/:grade/:class', (req, res) => {
-// 오늘시간표
-});
-
-app.post('/subscription/:grade/:class', (req, res) => {
-  // 오늘의 타임스템프
-});

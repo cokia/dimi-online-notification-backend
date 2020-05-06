@@ -23,11 +23,12 @@ admin.initializeApp({
 const topic = '';
 const payload:any = {
   notification: {
-    title: '푸시 알림 제목',
-    body: '푸시 알림 내용.',
-    click_action: '',
-    icon: '',
+    title,
+    body,
+    click_action,
+    icon,
   },
+  ,
   topic,
 };
 
