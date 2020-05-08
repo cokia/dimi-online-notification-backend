@@ -7,5 +7,6 @@
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
     "downlevelIteration": true,
+    "outDir": "lib"
   },
 }
