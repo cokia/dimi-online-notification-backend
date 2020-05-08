@@ -1,9 +1,7 @@
 /* eslint-disable no-unused-vars */
 import express, { Application } from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
-
-dotenv.config();
+import {subscribeTokenToTopic} from './util/fcm'
 
 class App {
   public application: Application;
@@ -35,6 +33,11 @@ class App {
 }
 
 const app = new App().application;
-const zoomurl = 'zoommtg://us04web.zoom.us/join?action=join&confno=';
 
+app.listen(3000, () => {
+  console.info('✅ Start IPA Distribution Server ✅');
+
+app.post('/topicsub/:topic/:token', (_, req, res) => {
+subscribeTokenToTopic(res.params.token, res.param.topic);
+})
 export default app;

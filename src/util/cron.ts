@@ -8,6 +8,7 @@ import schedule from 'node-schedule';
 import { fcmsend } from './fcm';
 import timetableForFirstGraders from '../timetable/first.json';
 import timetableForSecondGraders from '../timetable/second.json';
+const zoomurl = 'zoommtg://zoom.us/join?action=join&confno=';
 
 interface ISubject {
   name: string;
@@ -25,43 +26,39 @@ interface IClassroom {
 }
 
 export async function _homeroomCall(isStart: boolean) {
-  [timetableForFirstGraders, timetableForSecondGraders]
-    .forEach((timetable, timetableIndex: number) => {
-      const grade = timetableIndex + 1;
+  [timetableForFirstGraders, timetableForSecondGraders].forEach((timetable, timetableIndex: number) => {
+    const grade = timetableIndex + 1;
 
-      Object
-        .values(timetable)
-        .forEach((classroom: IClassroom, index: number) => {
-          if (!classroom.homeroom) {
-            return;
-          }
-          const { homeroom: { name, url } } = classroom;
-          const topicCode = `${grade}${index + 1}`;
-          fcmsend(`${isStart ? '조회' : '종례'} 시작 5분 전입니다!`, name, url, topicCode);
-        });
-    });
+    Object
+      .values(timetable)
+      .forEach((classroom: IClassroom, index: number) => {
+        if (!classroom.homeroom) {
+          return;
+        }
+        const { homeroom: { name, url } } = classroom;
+        const topicCode = `${grade}${index + 1}`;
+        fcmsend(`${isStart ? '조회' : '종례'} 시작 5분 전입니다!`, name, url, topicCode);
+      });
+  });
 }
 
 async function _classCall(day: number, classNumberIndex: number) {
-  [timetableForFirstGraders, timetableForSecondGraders]
-    .forEach((timetableList, timetableIndex: number) => {
-      const grade = timetableIndex + 1;
+  [timetableForFirstGraders, timetableForSecondGraders].forEach((timetableList, timetableIndex: number) => {
+    const grade = timetableIndex + 1;
 
-      Object
-        .values(timetableList)
-        .forEach((classroom: IClassroom, index: number) => {
-          if (!classroom.timetable) {
-            return;
-          }
-          const { timetable } = classroom;
-          const { subjects } = timetable[day];
-          const currentSubject = subjects[classNumberIndex];
-          const topicCode = `${grade}${index + 1}`;
+    Object.values(timetableList).forEach((classroom: IClassroom, index: number) => {
+      if (!classroom.timetable) {
+        return;
+      }
+      const { timetable } = classroom;
+      const { subjects } = timetable[day];
+      const currentSubject = subjects[classNumberIndex];
+      const topicCode = `${grade}${index + 1}`;
 
-          const { name, url } = currentSubject;
-          fcmsend(`${classNumberIndex}교시 시작 5분 전입니다!`, name, url, topicCode);
-        });
+      const { name, url } = currentSubject;
+      fcmsend(`${classNumberIndex}교시 시작 5분 전입니다!`, name, url, topicCode);
     });
+  });
 }
 
 const homeroomStartCall = () => _homeroomCall(true);
@@ -85,28 +82,27 @@ const classes = notifiers.map((notifier, index) => ({
 }));
 
 const days = [1, 2, 3, 4, 5];
-days
-  .forEach((dayOfWeek: number) => {
-    schedule.scheduleJob(
-      { hour: 8, minute: 40, dayOfWeek },
-      homeroomStartCall,
-    );
+days.forEach((dayOfWeek: number) => {
+  schedule.scheduleJob(
+    { hour: 8, minute: 40, dayOfWeek },
+    homeroomStartCall,
+  );
 
-    const isWednesday = dayOfWeek === 3;
-    classes.forEach(({ hour, minute, notifier }, classNumberIndex) => {
-      const isSeventhClass = classNumberIndex === 6;
-      if (isWednesday && isSeventhClass) {
-        return;
-      }
-
-      schedule.scheduleJob(
-        { hour, minute, dayOfWeek },
-        () => notifier(dayOfWeek),
-      );
-    });
+  const isWednesday = dayOfWeek === 3;
+  classes.forEach(({ hour, minute, notifier }, classNumberIndex) => {
+    const isSeventhClass = classNumberIndex === 6;
+    if (isWednesday && isSeventhClass) {
+      return;
+    }
 
     schedule.scheduleJob(
-      { hour: isWednesday ? 15 : 16, minute: 45, dayOfWeek },
-      homeroomEndCall,
+      { hour, minute, dayOfWeek },
+      () => notifier(dayOfWeek),
     );
   });
+
+  schedule.scheduleJob(
+    { hour: isWednesday ? 15 : 16, minute: 45, dayOfWeek },
+    homeroomEndCall,
+  );
+});
