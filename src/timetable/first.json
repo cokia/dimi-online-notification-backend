@@ -1,173 +1,176 @@
 {
-    "1":[{}],
-        "2":[{}],
-"3":[{
-	"homeroom-name": "이호선-T",
-	"homeroom-url": "https://zoom.us/j/4332940405",
-	"timetable": [{
-			"day": "mon",
-			"subject": [{
-					"name": "미술 - 김소희T",
-					"url": "https://zoom.us/j/8448373394"
-				},
-				{
-					"name": "미술 - 김소희T",
-					"url": "https://zoom.us/j/8448373394"
-				},
-				{
-					"name": "수학 - 류명희T",
-					"url": "https://zoom.us/j/6838770867"
-				},
-				{
-					"name": "국어 - 성기하T",
-					"url": "https://zoom.us/j/3300965795"
-				},
-				{
-					"name": "플밍A - 이호선T(담임)",
-					"url": "https://zoom.us/j/4332940405"
-				},
-				{
-					"name": "플밍A - 이호선T(담임)",
-					"url": "https://zoom.us/j/4332940405"
-				},
-				{
-					"name": "컴시일 - 안수진T",
-					"url": "https://zoom.us/j/6971690768"
-				}
-			]
-
+	"1": {},
+	"2": {},
+	"3": {
+		"homeroom": {
+			"name": "이호선-T",
+			"url": "https://zoom.us/j/4332940405"
 		},
-		{
-			"day": "tue",
-			"subject": [{
-					"name": "진로 - 김소희T",
-					"url": "https://zoom.us/j/8448373394"
-				},
-				{
-					"name": "미술 - 김소희T",
-					"url": "https://zoom.us/j/8448373394"
-				},
-				{
-					"name": "사회 - 이민주T",
-					"url": ""
-				},
-				{
-					"name": "컴시일 - 안수진T",
-					"url": "https://zoom.us/j/6971690768"
-				},
-				{
-					"name": "체육 - 김성열T",
-					"url": "https://zoom.us/j/7760965125"
-				},
-				{
-					"name": "CA",
-					"url": ""
-				},
-				{
-					"name": "진로",
-					"url": ""
-				}
-			]
-
-		},
-		{
-			"day": "wed",
-			"subject": [{
-					"name": "플밍A - 이호선T(담임)",
-					"url": "https://zoom.us/j/4332940405"
-				},
-				{
-					"name": "컴시일 - 안수진T",
-					"url": "https://zoom.us/j/6971690768"
-				},
-				{
-					"name": "사회 - 이민주T",
-					"url": ""
-				},
-				{
-					"name": "플밍B - 임재훈T",
-					"url": "https://zoom.us/j/4679526373"
-				},
-				{
-					"name": "플밍B - 임재훈T",
-					"url": "https://zoom.us/j/4679526373"
-				},
-				{
-					"name": "영어 - 공정도T",
-					"url": "https://zoom.us/j/4700404365"
-				}
-			]
-
-		},
-		{
-			"day": "thu",
-			"subject": [{
-					"name": "플밍A - 이호선T(담임)",
-					"url": "https://zoom.us/j/4332940405"
-				},
-				{
-					"name": "수학 - 류명희T",
-					"url": "https://zoom.us/j/6838770867"
-				},
-				{
-					"name": "체육 - 김성열T",
-					"url": "https://zoom.us/j/7760965125"
-				},
-				{
-					"name": "영어 - 공정도T",
-					"url": "https://zoom.us/j/4700404365"
-				},
-				{
-					"name": "과학 - 김종수T",
-					"url": "https://zoom.us/j/4361766687"
-				},
-				{
-					"name": "국어 - 성기하T",
-					"url": "https://zoom.us/j/3300965795"
-				},
-				{
-					"name": "HR - 이호선T(담임)",
-					"url": "https://zoom.us/j/4332940405"
-				}
-			]
-
-		},
-		{
-			"day": "fri",
-			"subject": [{
-					"name": "미술 - 김소희T",
-					"url": "https://zoom.us/j/8448373394"
-				},
-				{
-					"name": "과학 - 김종수T",
-					"url": "https://zoom.us/j/4361766687"
-				},
-				{
-					"name": "영어 - 공정도T",
-					"url": "https://zoom.us/j/4700404365"
-				},
-				{
-					"name": "국어 - 성기하T",
-					"url": "https://zoom.us/j/3300965795"
-				},
-				{
-					"name": "수학 - 류명희T",
-					"url": "https://zoom.us/j/6838770867"
-				},
-				{
-					"name": "플밍B - 임재훈T",
-					"url": "https://zoom.us/j/4679526373"
-				},
-				{
-					"name": "사회 - 이민주T",
-					"url": ""
-				}
-			]
-
-		}
-	]
-}],
-"4":[{}],
-    "5":[{}],
-        "6":[{}]
+		"timetable": [
+			{
+				"day": "mon",
+				"subjects": [
+					{
+						"name": "미술 - 김소희T",
+						"url": "https://zoom.us/j/8448373394"
+					},
+					{
+						"name": "미술 - 김소희T",
+						"url": "https://zoom.us/j/8448373394"
+					},
+					{
+						"name": "수학 - 류명희T",
+						"url": "https://zoom.us/j/6838770867"
+					},
+					{
+						"name": "국어 - 성기하T",
+						"url": "https://zoom.us/j/3300965795"
+					},
+					{
+						"name": "플밍A - 이호선T(담임)",
+						"url": "https://zoom.us/j/4332940405"
+					},
+					{
+						"name": "플밍A - 이호선T(담임)",
+						"url": "https://zoom.us/j/4332940405"
+					},
+					{
+						"name": "컴시일 - 안수진T",
+						"url": "https://zoom.us/j/6971690768"
+					}
+				]
+			},
+			{
+				"day": "tue",
+				"subjects": [
+					{
+						"name": "진로 - 김소희T",
+						"url": "https://zoom.us/j/8448373394"
+					},
+					{
+						"name": "미술 - 김소희T",
+						"url": "https://zoom.us/j/8448373394"
+					},
+					{
+						"name": "사회 - 이민주T",
+						"url": ""
+					},
+					{
+						"name": "컴시일 - 안수진T",
+						"url": "https://zoom.us/j/6971690768"
+					},
+					{
+						"name": "체육 - 김성열T",
+						"url": "https://zoom.us/j/7760965125"
+					},
+					{
+						"name": "CA",
+						"url": ""
+					},
+					{
+						"name": "진로",
+						"url": ""
+					}
+				]
+			},
+			{
+				"day": "wed",
+				"subjects": [
+					{
+						"name": "플밍A - 이호선T(담임)",
+						"url": "https://zoom.us/j/4332940405"
+					},
+					{
+						"name": "컴시일 - 안수진T",
+						"url": "https://zoom.us/j/6971690768"
+					},
+					{
+						"name": "사회 - 이민주T",
+						"url": ""
+					},
+					{
+						"name": "플밍B - 임재훈T",
+						"url": "https://zoom.us/j/4679526373"
+					},
+					{
+						"name": "플밍B - 임재훈T",
+						"url": "https://zoom.us/j/4679526373"
+					},
+					{
+						"name": "영어 - 공정도T",
+						"url": "https://zoom.us/j/4700404365"
+					}
+				]
+			},
+			{
+				"day": "thu",
+				"subjects": [
+					{
+						"name": "플밍A - 이호선T(담임)",
+						"url": "https://zoom.us/j/4332940405"
+					},
+					{
+						"name": "수학 - 류명희T",
+						"url": "https://zoom.us/j/6838770867"
+					},
+					{
+						"name": "체육 - 김성열T",
+						"url": "https://zoom.us/j/7760965125"
+					},
+					{
+						"name": "영어 - 공정도T",
+						"url": "https://zoom.us/j/4700404365"
+					},
+					{
+						"name": "과학 - 김종수T",
+						"url": "https://zoom.us/j/4361766687"
+					},
+					{
+						"name": "국어 - 성기하T",
+						"url": "https://zoom.us/j/3300965795"
+					},
+					{
+						"name": "HR - 이호선T(담임)",
+						"url": "https://zoom.us/j/4332940405"
+					}
+				]
+			},
+			{
+				"day": "fri",
+				"subjects": [
+					{
+						"name": "미술 - 김소희T",
+						"url": "https://zoom.us/j/8448373394"
+					},
+					{
+						"name": "과학 - 김종수T",
+						"url": "https://zoom.us/j/4361766687"
+					},
+					{
+						"name": "영어 - 공정도T",
+						"url": "https://zoom.us/j/4700404365"
+					},
+					{
+						"name": "국어 - 성기하T",
+						"url": "https://zoom.us/j/3300965795"
+					},
+					{
+						"name": "수학 - 류명희T",
+						"url": "https://zoom.us/j/6838770867"
+					},
+					{
+						"name": "플밍B - 임재훈T",
+						"url": "https://zoom.us/j/4679526373"
+					},
+					{
+						"name": "사회 - 이민주T",
+						"url": ""
+					}
+				]
+			}
+		]
+	},
+	"4": {},
+	"5": {},
+	"6": {}
 }
