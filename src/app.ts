@@ -37,8 +37,8 @@ class App {
       res.status(200).send('dimi-online-notification api server');
     });
 
-    this.application.post('/topicsub/:topic/:token', (req: IRequest, res, _) => {
-      subscribeTokenToTopic(req.params.token, req.params.topic);
+    this.application.post('/topicsub/:topic/:token', async (req: IRequest, res, _) => {
+      await subscribeTokenToTopic(req.params.token, req.params.topic);
       res.status(200).send('OK');
     });
   }
