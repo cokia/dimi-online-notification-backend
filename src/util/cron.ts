@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+/* eslint-disable no-unused-vars */
 import schedule from 'node-schedule';
 import { fcmsend } from './fcm';
 import timetableForFirstGraders from '../timetable/first.json';

@@ -28,4 +28,3 @@ app.all('/*', (req, res, next) => {
 app.get('/', (req, res) => {
   res.status(200).send('dimi-online-notification api server');
 });
-
