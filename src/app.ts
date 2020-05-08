@@ -14,7 +14,7 @@ class App {
 }
 
 const app = new App().application;
-const zoomurl = 'zoommtg://us04web.zoom.us/join?action=join&confno=';
+const zoomurl = 'zoommtg://zoom.us/join?action=join&confno=';
 
 app.use(cors());
 

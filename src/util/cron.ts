@@ -1,3 +1,7 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable import/prefer-default-export */
 /* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
 import schedule from 'node-schedule';
@@ -63,9 +67,7 @@ async function _classCall(day: number, classNumberIndex: number) {
 const homeroomStartCall = () => _homeroomCall(true);
 const homeroomEndCall = () => _homeroomCall(false);
 
-const notifiers = [...Array(7)].map((_, index) => {
-  return (day: number) => _classCall(day - 1, index);
-});
+const notifiers = [...Array(7)].map((_, index) => (day: number) => _classCall(day - 1, index));
 
 const notifyTimes = [
   { hour: 8, minute: 55 },
