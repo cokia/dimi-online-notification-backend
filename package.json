@@ -2,7 +2,7 @@
   "name": "dimi-online-notification-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",

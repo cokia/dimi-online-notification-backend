@@ -1,7 +1,14 @@
 /* eslint-disable no-unused-vars */
-import express, { Application } from 'express';
+import express, { Application, Request } from 'express';
 import cors from 'cors';
 import {subscribeTokenToTopic} from './util/fcm'
+
+interface IRequest extends Request {
+  params: {
+    token: string;
+    topic: string;
+  }
+}
 
 class App {
   public application: Application;
@@ -29,15 +36,14 @@ class App {
     this.application.get('/', (_, res) => {
       res.status(200).send('dimi-online-notification api server');
     });
+
+    this.application.post('/topicsub/:topic/:token', (req: IRequest, res, _) => {
+      subscribeTokenToTopic(req.params.token, req.params.topic);
+      res.status(200).send('OK');
+    });
   }
 }
 
 const app = new App().application;
 
-app.listen(3000, () => {
-  console.info('✅ Start IPA Distribution Server ✅');
-
-app.post('/topicsub/:topic/:token', (_, req, res) => {
-subscribeTokenToTopic(res.params.token, res.param.topic);
-})
 export default app;
