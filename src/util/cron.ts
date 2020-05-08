@@ -40,11 +40,11 @@ export async function _homeroomCall(isStart: boolean) {
 
 async function _classCall(day: number, classNumberIndex: number) {
   [timetableForFirstGraders, timetableForSecondGraders]
-    .forEach((timetable, timetableIndex: number) => {
+    .forEach((timetableList, timetableIndex: number) => {
       const grade = timetableIndex + 1;
 
       Object
-        .values(timetable)
+        .values(timetableList)
         .forEach((classroom: IClassroom, index: number) => {
           if (!classroom.timetable) {
             return;
