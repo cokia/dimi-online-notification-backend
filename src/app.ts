@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import express, { Application, Request } from 'express';
 import cors from 'cors';
-import {subscribeTokenToTopic} from './util/fcm'
+import { subscribeTokenToTopic, fcmsend } from './util/fcm';
 
 interface IRequest extends Request {
   params: {
@@ -39,6 +39,10 @@ class App {
 
     this.application.post('/topicsub/:topic/:token', async (req: IRequest, res, _) => {
       await subscribeTokenToTopic(req.params.token, req.params.topic);
+      res.status(200).send('OK');
+    });
+    this.application.get('/test/:topic', (req: IRequest, res, _) => {
+      fcmsend('여준호선배님', '자살하십쇼', 'https://naver.com', '13');
       res.status(200).send('OK');
     });
   }
