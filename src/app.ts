@@ -36,3 +36,5 @@ class App {
 
 const app = new App().application;
 const zoomurl = 'zoommtg://us04web.zoom.us/join?action=join&confno=';
+
+export default app;
