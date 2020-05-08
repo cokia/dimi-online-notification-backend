@@ -2,7 +2,11 @@
   "name": "dimi-online-notification-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "lib/src/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node lib/src/index.js"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
@@ -29,9 +33,6 @@
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
     "typescript": "^3.8.3"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
