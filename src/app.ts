@@ -4,6 +4,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 
 dotenv.config();
+
 class App {
   public application: Application;
 
@@ -11,9 +12,12 @@ class App {
     this.application = express();
   }
 }
+
 const app = new App().application;
 const zoomurl = 'zoommtg://us04web.zoom.us/join?action=join&confno=';
+
 app.use(cors());
+
 app.all('/*', (req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'X-Requested-With');

@@ -2,7 +2,7 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-throw-literal */
 import * as admin from 'firebase-admin';
-import fetch from 'node-fetch';
+import fetch, { Headers } from 'node-fetch';
 import dotenv from 'dotenv';
 import * as serviceAccount from '../../firebase-credential.json';
 
@@ -21,32 +21,35 @@ const params = {
   clientC509CertUrl: serviceAccount.client_x509_cert_url,
 };
 
-
 admin.initializeApp({
   credential: admin.credential.applicationDefault(),
   databaseURL: 'https://dimi-online-notification.firebaseio.com/',
 });
 const fcm_server_key = process.env.serverkey;
-type Headers = string[][] | { [key: string]: string; } | undefined;
 
-export async function subscribeTokenToTopic(token: any, topic: any) {
-  const requestHeaders: HeadersInit = new Headers();
+export async function subscribeTokenToTopic(token: string, topic: string) {
+  const requestHeaders = new Headers();
   requestHeaders.set('Content-Type', 'application/json');
+  requestHeaders.set('Authorization', `key=${fcm_server_key}`);
+
   fetch(`https://iid.googleapis.com/iid/v1/${token}/rel/topics/${topic}`, {
     method: 'POST',
     headers: requestHeaders,
-    Authorization: `key=${fcm_server_key}`,
-  }).then((response: { status: number; text: () => any; }) => {
-    if (response.status < 200 || response.status >= 400) {
-      throw `Error subscribing to topic: ${response.status} - ${response.text()}`;
-    }
-    console.log(`Subscribed to "${topic}"`);
-  }).catch((error: any) => {
-    console.error(error);
-  });
+  })
+    .then((response) => {
+      const { status, text } = response;
+      if (status < 200 || status >= 400) {
+        throw `Error subscribing to topic: ${status} - ${text()}`;
+      }
+      console.log(`Subscribed to "${topic}"`);
+    })
+    .catch((error: any) => {
+      console.error(error);
+    });
 }
-export async function fcmsend(title:string, body:string, url:string, topic:string) {
-  const payload:any = {
+
+export async function fcmsend(title: string, body: string, url: string, topic: string) {
+  const payload: any = {
     notification: {
       title,
       body,
@@ -56,8 +59,9 @@ export async function fcmsend(title:string, body:string, url:string, topic:strin
     topic,
   };
 
-
-  admin.messaging().send(payload)
+  admin
+    .messaging()
+    .send(payload)
     .then((response) => {
       console.log('Successfully sent message:', response);
     })
