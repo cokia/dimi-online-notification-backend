@@ -1,7 +1,12 @@
+/* eslint-disable no-undef */
+/* eslint-disable camelcase */
 /* eslint-disable no-throw-literal */
 import * as admin from 'firebase-admin';
 import fetch from 'node-fetch';
+import dotenv from 'dotenv';
 import * as serviceAccount from '../../firebase-credential.json';
+
+dotenv.config();
 
 const params = {
   type: serviceAccount.type,
@@ -21,19 +26,22 @@ admin.initializeApp({
   credential: admin.credential.applicationDefault(),
   databaseURL: 'https://dimi-online-notification.firebaseio.com/',
 });
+const fcm_server_key = process.env.serverkey;
+type Headers = string[][] | { [key: string]: string; } | undefined;
 
-export async function subscribeTokenToTopic(token, topic) {
+export async function subscribeTokenToTopic(token: any, topic: any) {
+  const requestHeaders: HeadersInit = new Headers();
+  requestHeaders.set('Content-Type', 'application/json');
   fetch(`https://iid.googleapis.com/iid/v1/${token}/rel/topics/${topic}`, {
     method: 'POST',
-    headers: new Headers({
-      Authorization: `key=${fcm_server_key}`,
-    }),
-  }).then((response) => {
+    headers: requestHeaders,
+    Authorization: `key=${fcm_server_key}`,
+  }).then((response: { status: number; text: () => any; }) => {
     if (response.status < 200 || response.status >= 400) {
       throw `Error subscribing to topic: ${response.status} - ${response.text()}`;
     }
     console.log(`Subscribed to "${topic}"`);
-  }).catch((error) => {
+  }).catch((error: any) => {
     console.error(error);
   });
 }
