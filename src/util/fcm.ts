@@ -27,7 +27,7 @@ admin.initializeApp({
   credential: admin.credential.applicationDefault(),
   databaseURL: 'https://dimi-online-notification.firebaseio.com/',
 });
-const fcm_server_key = process.env.serverkey;
+const fcm_server_key = "AAAAw4cySxk:APA91bG1WV-wYuk5dji3VpdewLrJgna8ygU1gVxvF33sgEASS2QfBBhasH_TFCtCSb4Fy-Z2H-HhYy2RdmUK2Ny9pG3H3D5xArzM2REA-OUZvL3hHJwcWvK9UQ9bcku2kXBeaolofJSf"
 
 export async function subscribeTokenToTopic(token: string, topic: string) {
   const requestHeaders = new Headers();
