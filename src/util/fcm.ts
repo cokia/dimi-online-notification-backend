@@ -55,6 +55,9 @@ export async function fcmsend(title: string, body: string, url: string, topic: s
       title,
       body,
     },
+    data: {
+      url,
+    },
     topic,
   };
 
