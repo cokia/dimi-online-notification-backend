@@ -51,14 +51,12 @@ export async function subscribeTokenToTopic(token: string, topic: string) {
 
 export async function fcmsend(title: string, body: string, url: string, topic: string) {
   const payload: any = {
-    notification: {
+    topic,
+    data: {
       title,
       body,
-    },
-    data: {
       url,
     },
-    topic,
   };
 
   admin
