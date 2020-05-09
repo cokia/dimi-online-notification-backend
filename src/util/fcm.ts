@@ -54,8 +54,6 @@ export async function fcmsend(title: string, body: string, url: string, topic: s
     notification: {
       title,
       body,
-      click_action: url,
-      icon: 'https://github.com/cokia.png',
     },
     topic,
   };
