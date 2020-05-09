@@ -24,14 +24,14 @@ const params = {
 };
 
 admin.initializeApp({
-  credential: admin.credential.applicationDefault(),
+  credential: admin.credential.cert(params),
   databaseURL: 'https://dimi-online-notification.firebaseio.com/',
 });
 
 export async function subscribeTokenToTopic(token: string, topic: string) {
   const requestHeaders = new Headers();
   requestHeaders.set('Content-Type', 'application/json');
-  requestHeaders.set('Authorization', `key=${fcm_server_key}`);
+  requestHeaders.set('Authorization', `key=${process.env.serverkey}`);
 
   fetch(`https://iid.googleapis.com/iid/v1/${token}/rel/topics/${topic}`, {
     method: 'POST',
