@@ -43,7 +43,7 @@ class App {
     });
 
     this.application.get('/test/:topic', async (req, res, _) => {
-      await fcmsend('여준호선배님', '자살하십쇼', 'https://naver.com', '13');
+      await fcmsend('1-3토픽에 대한', '테스트메시지입니다.', 'zoommtg://zoom.us/join?action=join&confno=4332940405', '13');
       res.status(200).send('OK');
     });
   }
