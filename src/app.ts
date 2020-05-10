@@ -41,11 +41,6 @@ class App {
       await subscribeTokenToTopic(req.params.token, req.params.topic);
       res.status(200).send('OK');
     });
-
-    this.application.get('/test/:topic', async (req, res, _) => {
-      await fcmsend('여준호선배님', '자살하십쇼', 'https://naver.com', '13');
-      res.status(200).send('OK');
-    });
   }
 }
 
