@@ -41,11 +41,6 @@ class App {
       await subscribeTokenToTopic(req.params.token, req.params.topic);
       res.status(200).send('OK');
     });
-
-    this.application.get('/test/:topic', async (req, res, _) => {
-      await fcmsend('1-3토픽에 대한', '테스트메시지입니다.', 'zoommtg://zoom.us/join?action=join&confno=4332940405', '13');
-      res.status(200).send('OK');
-    });
   }
 }
 

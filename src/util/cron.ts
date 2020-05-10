@@ -81,28 +81,35 @@ const classes = notifiers.map((notifier, index) => ({
   ...notifyTimes[index],
 }));
 
-const days = [1, 2, 3, 4, 5];
-days.forEach((dayOfWeek: number) => {
-  schedule.scheduleJob(
-    { hour: 8, minute: 40, dayOfWeek },
-    homeroomStartCall,
-  );
+export const registerSchedulers = () => {
+  const days = [1, 2, 3, 4, 5];
+  days.forEach((dayOfWeek: number) => {
+    console.log(`\n===== For day ${dayOfWeek} ===`)
+    schedule.scheduleJob(
+      { hour: 8, minute: 40, dayOfWeek },
+      homeroomStartCall,
+    );
+    console.log('🗓 Registered homeroom start call');
 
-  const isWednesday = dayOfWeek === 3;
-  classes.forEach(({ hour, minute, notifier }, classNumberIndex) => {
-    const isSeventhClass = classNumberIndex === 6;
-    if (isWednesday && isSeventhClass) {
-      return;
-    }
+    const isWednesday = dayOfWeek === 3;
+    classes.forEach(({ hour, minute, notifier }, classNumberIndex) => {
+      const isSeventhClass = classNumberIndex === 6;
+      if (isWednesday && isSeventhClass) {
+        return;
+      }
+
+      schedule.scheduleJob(
+        { hour, minute, dayOfWeek },
+        () => notifier(dayOfWeek),
+      );
+    });
+    console.log('🗓 Registered each class for weekdays');
 
     schedule.scheduleJob(
-      { hour, minute, dayOfWeek },
-      () => notifier(dayOfWeek),
+      { hour: isWednesday ? 15 : 16, minute: 45, dayOfWeek },
+      homeroomEndCall,
     );
+    console.log('🗓 Registered homeroom end call');
   });
-
-  schedule.scheduleJob(
-    { hour: isWednesday ? 15 : 16, minute: 45, dayOfWeek },
-    homeroomEndCall,
-  );
-});
+  console.log('\n');
+};
