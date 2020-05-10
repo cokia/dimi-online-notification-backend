@@ -51,7 +51,13 @@ export async function subscribeTokenToTopic(token: string, topic: string) {
 export async function unSubscribeTokenToTopic(token: string, topic: string) {
   admin.messaging().unsubscribeFromTopic(token, topic)
     .then((response) => {
-      console.log(response);
+      if (response.successCount === 1) {
+        console.log(`successfully unSubscribed to "${topic}"`);
+      } else {
+        throw 'Error unsubscribing to topic';
+      }
+    }).catch((error: any) => {
+      console.error(error);
     });
 }
 export async function fcmsend(title: string, body: string, url: string, topic: string) {
