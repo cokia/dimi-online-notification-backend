@@ -48,7 +48,12 @@ export async function subscribeTokenToTopic(token: string, topic: string) {
       console.error(error);
     });
 }
-
+export async function unSubscribeTokenToTopic(token: string, topic: string) {
+  admin.messaging().unsubscribeFromTopic(token, topic)
+    .then((response) => {
+      console.log(response);
+    });
+}
 export async function fcmsend(title: string, body: string, url: string, topic: string) {
   const payload: any = {
     topic,
