@@ -1,7 +1,8 @@
 lib/
 .DS_Store
 package-lock.json
-
+src/timetable/first.json
+src/timetable/second.json
 # Logs
 logs
 *.log
