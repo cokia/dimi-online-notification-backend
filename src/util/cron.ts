@@ -9,8 +9,6 @@ import { fcmsend } from './fcm';
 import timetableForFirstGraders from '../timetable/first.json';
 import timetableForSecondGraders from '../timetable/second.json';
 
-const zoomurl = 'zoommtg://zoom.us/join?action=join&confno=';
-
 interface ISubject {
   name: string;
   url: string;
