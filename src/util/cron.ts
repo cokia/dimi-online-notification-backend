@@ -8,6 +8,7 @@ import schedule from 'node-schedule';
 import { fcmsend } from './fcm';
 import timetableForFirstGraders from '../timetable/first.json';
 import timetableForSecondGraders from '../timetable/second.json';
+
 const zoomurl = 'zoommtg://zoom.us/join?action=join&confno=';
 
 interface ISubject {
@@ -57,6 +58,7 @@ async function _classCall(day: number, classNumberIndex: number) {
 
       const { name, url } = currentSubject;
       fcmsend(`${classNumberIndex}교시 시작 5분 전입니다!`, name, url, topicCode);
+      console.log(`${classNumberIndex}교시 시작 5분 전입니다!`),
     });
   });
 }
@@ -84,7 +86,7 @@ const classes = notifiers.map((notifier, index) => ({
 export const registerSchedulers = () => {
   const days = [1, 2, 3, 4, 5];
   days.forEach((dayOfWeek: number) => {
-    console.log(`\n===== For day ${dayOfWeek} ===`)
+    console.log(`\n===== For day ${dayOfWeek} ===`);
     schedule.scheduleJob(
       { hour: 8, minute: 40, dayOfWeek },
       homeroomStartCall,
