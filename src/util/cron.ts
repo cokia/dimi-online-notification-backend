@@ -56,7 +56,7 @@ async function _classCall(day: number, classNumberIndex: number) {
 
       const { name, url } = currentSubject;
       fcmsend(`${classNumberIndex}교시 시작 5분 전입니다!`, name, url, topicCode);
-      console.log(`${classNumberIndex}교시 시작 5분 전입니다!`),
+      console.log(`${classNumberIndex}교시 시작 5분 전입니다!`);
     });
   });
 }
