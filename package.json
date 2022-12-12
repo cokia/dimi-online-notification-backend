@@ -10,7 +10,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "fcm-node": "^1.5.2",
     "firebase-admin": "^8.11.0",
     "node-fetch": "^2.6.0",
